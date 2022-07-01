@@ -1,8 +1,7 @@
 /*
-# MILESTONE 1
-Prepariamo "qualcosa" per tenere il punteggio dell'utente.
-Quando l'utente clicca su una cella, incrementiamo il punteggio.
-Se riusciamo, facciamo anche in modo da non poter più cliccare la stessa cella.
+# MILESTONE 2
+Facciamo in modo di generare 16 numeri casuali (tutti diversi) compresi tra 1 e il massimo di caselle disponibili.
+Generiamoli e stampiamo in console per essere certi che siano corretti
 */
 
 //recupero la griglia dove inserire le celle
@@ -20,6 +19,12 @@ const getCreatecell = (content) => {
   cell.classList.add("cell", classMod);
   cell.innerText = content; 
   return cell;
+}
+
+//creo una funzione per creare numeri random
+const getRandomNumber = (min, max)=> {
+  randomNumber = Math.floor(Math.random() * (max +1 - min) + min);
+  return randomNumber
 }
 
 let numberOfcells = 0;
@@ -45,6 +50,17 @@ playButton.addEventListener("click", ()=> {
     numberOfcells = 49;
     classMod = "hard";
   }
+  const bombNumbers = [];
+
+  for (let i=0; i<16; i++) {
+    let number;
+    do {
+      number = getRandomNumber(1,numberOfcells);
+
+    } while (bombNumbers.includes(number));
+      bombNumbers.push(number);
+  }
+  console.log(bombNumbers);
 
   for (let i = 1; i <= numberOfcells; i++){
     const cell = getCreatecell(i);
