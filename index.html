@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <!-- Style -->
+  <link rel="stylesheet" href="css/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <img src="img/logo.jpeg" alt="logo boolean">
+          <h2 class="fw-bold mb-0 d-inline-block">Campo Minato</h2>
+        </div>
+        <div class="col justify-content-end">
+          <label for="modality">Difficoltà:</label>
+          <select name="modality" id="modality" class="me-2">
+            <option value="">--</option>
+            <option value="e">Easy</option>
+            <option value="m">Medium</option>
+            <option value="h">Hard</option>
+          </select>
+          <button id="play">Play</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div id="grid">
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <h5>Made width &hearts; by <a href="#">Boolean</a></h5>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html>

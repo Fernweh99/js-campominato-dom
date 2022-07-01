@@ -1,0 +1,69 @@
+/*# Generics */
+
+/*# Header */
+header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  background-color: #FFF;
+}
+
+header .col {
+  display: flex;
+  align-items: center;
+}
+
+header img {
+  height: 60px;
+}
+
+/*# Main */
+main {
+  background-color: #7FFFD3;
+  padding: 60px 0;
+}
+
+main #grid {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px auto;
+}
+
+#grid .cell {
+  cursor: pointer;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#grid .cell.clicked {
+  background-color: #01BFFE;
+}
+
+/* Grid modality */
+#grid .cell.easy {
+  width: calc(100% / 10);
+  height: calc(100% / 10);
+}
+
+#grid .cell.medium {
+  width: calc(100% / 9);
+  height: calc(100% / 9);
+}
+
+#grid .cell.hard {
+  width: calc(100% / 7);
+  height: calc(100% / 7);
+}
+
+/*# Footer */
+footer {
+  height: 50px;
+}
+
+footer h5 {
+  line-height: 50px;
+}
