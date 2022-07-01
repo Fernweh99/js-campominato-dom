@@ -1,8 +1,9 @@
 /*
-# MILESTONE 4
-Quando l'utente clicca su una cella, e questa non è una bomba, dobbiamo controllare
-se il punteggio incrementato ha raggiunto il punteggio massimo perchè in quel caso
-la partita termina. Raccogliamo quindi il messaggio è scriviamo un messaggio appropriato.
+# MILESTONE 5
+Quando la partita termina dobbiamo capire se è terminata perchè è stata cliccata
+una bomba o se perchè l'utente ha raggiunto il punteggio massimo. Dobbiamo poi
+stampare in pagina il punteggio raggiunto ed il messaggio adeguato in caso
+di vittoria o sconfitta.
 */
 
 //recupero la griglia dove inserire le celle
@@ -13,6 +14,9 @@ const playButton = document.getElementById('play');
 
 //recupero la select
 const selectChoice = document.getElementById('modality');
+
+//recupero l'elemento sul quale stampare il risultato
+divResult = document.getElementById("result");
 
 //creo una funzione per creare le celle
 const getCreatecell = (content) => {
@@ -34,6 +38,7 @@ let classMod = '';
 //al click del bottone creo tot celle con un ciclo for
 playButton.addEventListener("click", ()=> {
   grid.innerText=" ";
+  divResult.innerText=" ";
   console.clear();  
   let point = 0;
 
@@ -59,11 +64,12 @@ playButton.addEventListener("click", ()=> {
       number = getRandomNumber(1,numberOfcells);
 
     } while (bombNumbers.includes(number));
-      bombNumbers.push(number);
+    bombNumbers.push(number);
   }
   console.log(bombNumbers);
 
   let gameOver = false;
+  let resultWin;
   for (let i = 1; i <= numberOfcells; i++){
     const cell = getCreatecell(i);
     grid.appendChild(cell);
@@ -77,8 +83,7 @@ playButton.addEventListener("click", ()=> {
       if (bombNumbers.includes(parseInt(e.target.innerText))) {
         e.target.classList.add("bomb");
         gameOver = true;
-        console.log("HAI TERMINATO LA PARTITA");
-        console.log("Hai totalizzato un punteggio di: " + point);
+        resultWin = false;
       }
       else {
         point += 1;
@@ -86,7 +91,23 @@ playButton.addEventListener("click", ()=> {
 
       if (point === (numberOfcells - bombNumbers.length)) {
         gameOver = true;
-        console.log("Complimenti Hai Vinto!");
+        resultWin = true;
+      }
+      if (gameOver) {
+        let messagePoints = "ed hai terminato la partita con un punteggio di " + point;
+        if (resultWin) {
+          messageGame = "Hai vinto ";
+        }
+        else {
+          messageGame = "Hai perso ";
+        }
+
+        newMessageGame = document.createElement("h2");
+        newMessagePoints = document.createElement("h4");
+        newMessageGame.innerText = messageGame;
+        newMessagePoints.innerText = messagePoints;
+        divResult.appendChild(newMessageGame);
+        divResult.appendChild(newMessagePoints);
       }
     })
   }

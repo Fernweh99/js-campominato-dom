@@ -21,6 +21,7 @@ header img {
 main {
   background-color: #7FFFD3;
   padding: 60px 0;
+  position: relative;
 }
 
 main #grid {
@@ -29,6 +30,19 @@ main #grid {
   display: flex;
   flex-wrap: wrap;
   margin: 0px auto;
+}
+
+main #result {
+  position: absolute;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, 50%);
+  background-color: #7fffd2c3;
+  text-align: center;
+}
+
+main #result h2 {
+  font-size: 50px
 }
 
 #grid .cell {
