@@ -43,6 +43,10 @@ main #grid {
   background-color: #01BFFE;
 }
 
+#grid .cell.clicked.bomb{
+  background-color: #E85253;
+}
+
 /* Grid modality */
 #grid .cell.easy {
   width: calc(100% / 10);
