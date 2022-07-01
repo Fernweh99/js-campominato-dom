@@ -1,5 +1,8 @@
 /*
-
+# MILESTONE 1
+Prepariamo "qualcosa" per tenere il punteggio dell'utente.
+Quando l'utente clicca su una cella, incrementiamo il punteggio.
+Se riusciamo, facciamo anche in modo da non poter più cliccare la stessa cella.
 */
 
 //recupero la griglia dove inserire le celle
@@ -26,6 +29,7 @@ let classMod = '';
 playButton.addEventListener("click", ()=> {
   grid.innerText=" ";
   console.clear();  
+  let point = 0;
 
   if (selectChoice.value === "e") {
     numberOfcells = 100;
@@ -52,6 +56,8 @@ playButton.addEventListener("click", ()=> {
       }
       e.target.classList.add("clicked");
       console.log(i);
+      point += 1;
+      console.log(point);
     })
   }
 })
